@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!--
+    ============================================================
+     File:    index.html  (Home page)
+     Author:  Christ Aerjil Dampog
+     Course:  ENG 101, Finger Lakes Community College
+     Purpose: Introduces the site, shows three key facts, and
+              links to the other pages.
+    ============================================================
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home | The Energy Problem behind AI</title>
+
+    <!-- Fonts from Google Fonts: Inter (body text) and Space Grotesk (headings) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+
+    <!-- Shared styles for all pages -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ========== NAVIGATION BAR ========== -->
+    <nav class="site-nav" aria-label="Main">
+        <div class="wrap">
+            <a class="brand" href="index.html">The Energy Problem behind AI</a>
+            <ul>
+                <!-- aria-current="page" highlights the page you are on -->
+                <li><a class="nav-link" href="index.html" aria-current="page">Home</a></li>
+                <li><a class="nav-link" href="page1.html">What Is an AI Data Center?</a></li>
+                <li><a class="nav-link" href="page2.html">Effects on Your Community</a></li>
+                <li><a class="nav-link" href="page3.html">Solutions</a></li>
+                <li><a class="nav-link" href="page4.html">Sources</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- ========== BANNER ========== -->
+    <header class="hero">
+        <!--
+            TO ADD A BANNER PHOTO:
+            1. Save your photo as images/home-banner.jpg
+            2. Remove the comment marks around the <img> line below
+            3. Delete the <span class="img-slot-note"> line
+        -->
+        <!-- <img class="bg" src="images/home-banner.jpg" alt="Power lines leading to a large data center building"> -->
+
+        <img class="bg" src="images/home-banner.jpg" alt="Power lines leading to a large data center building">
+
+        <div class="wrap">
+            <h1>The Energy Problem behind Artificial Intelligence</h1>
+            <p class="tagline">
+                What AI data centers mean for our power, water, and neighborhoods,
+                and how our community can respond.
+            </p>
+        </div>
+    </header>
+
+
+    <main class="wrap">
+
+        <!-- ========== WHO THIS SITE IS FOR ========== -->
+        <section>
+            <h2>Who this site is for</h2>
+            <div class="box">
+                <p>
+                    Welcome! This site is for local residents and government officials who want to
+                    understand AI data centers: large facilities full of specialized computers that
+                    store and process the data AI tools like ChatGPT, Claude, and Gemini depend on.
+                    Here you will learn what AI data centers are, how they affect electricity, heat,
+                    and water in a community, and what we can do about it.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- ========== KEY FACTS (3 cards side by side) ========== -->
+        <section>
+            <h2>Key facts at a glance</h2>
+            <div class="grid grid-3">
+
+                <!-- Fact 1 -->
+                <div class="card">
+                    <p class="eyebrow">Fact 1</p>
+                    <h3>Electricity demand is climbing</h3>
+                    <p>
+                        Data centers are among the fastest-growing electricity users in the U.S., and
+                        their demand is projected to rise 7–12% by 2030
+                        <span class="cite">(Knittel et al., 2025, p. 1)</span>.
+                    </p>
+                </div>
+
+                <!-- Fact 2 -->
+                <div class="card">
+                    <p class="eyebrow">Fact 2</p>
+                    <h3>Trillions in new investment</h3>
+                    <p>
+                        The world is projected to need $6.7 trillion in data center spending by 2030,
+                        with $5.2 trillion of it for AI-ready facilities
+                        <span class="cite">(Ginzburg-Ganz et al., 2026, p. 18)</span>.
+                    </p>
+                </div>
+
+                <!-- Fact 3 -->
+                <div class="card">
+                    <p class="eyebrow">Fact 3</p>
+                    <h3>Communities are pushing back</h3>
+                    <p>
+                        More than 140 local groups have blocked or delayed over $60 billion in data
+                        center projects in roughly a year
+                        <span class="cite">(Yale School of the Environment, 2026)</span>.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ========== EXPLORE BUTTONS ========== -->
+        <section>
+            <h2>Explore the site</h2>
+            <div class="buttons">
+                <a class="btn" href="page1.html">What is an AI data center?</a>
+                <a class="btn" href="page2.html">Effects on your community</a>
+                <a class="btn" href="page3.html">Solutions</a>
+            </div>
+        </section>
+
+
+        <!-- ========== ABOUT THE AUTHOR ========== -->
+        <section>
+            <h2>About the author</h2>
+            <div class="box">
+                <p>
+                    I'm Christ Aerjil Dampog, a sophomore at Finger Lakes Community College studying
+                    Java and working toward becoming a software engineer. I use AI tools often, so I
+                    want to understand the real-world cost of the data centers behind them.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="wrap">
+            Christ Aerjil Dampog · Finger Lakes Community College · ENG 101 ·
+            <a href="page4.html">Sources</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>

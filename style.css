@@ -1,0 +1,512 @@
+/*
+ * ============================================================
+ *  File:    style.css
+ *  Author:  Christ Aerjil Dampog
+ *  Course:  ENG 101, Finger Lakes Community College
+ *  Purpose: Shared styles for every page of the
+ *           "The Energy Problem behind AI" website.
+ * ============================================================
+ */
+
+
+/* ============================================================
+ *  1. COLOR VARIABLES
+ *     Change a color here and it updates on every page.
+ * ============================================================ */
+:root {
+    --teal: #12737a;        /* main accent color (buttons, links, card tops) */
+    --teal-dark: #0d5a60;   /* button hover color */
+    --muted: #4b5563;       /* gray text (citations, taglines) */
+    --line: #d7dbe0;        /* light border color */
+    --soft: #f2f3f5;        /* light gray background (banner, footer) */
+}
+
+
+/* ============================================================
+ *  2. BASE STYLES
+ *     Default settings for the whole page.
+ * ============================================================ */
+
+/* Make padding and borders count inside an element's width */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    color: #1f2328;
+    background: #fff;
+}
+
+/* Headings use a second font so they stand out from body text */
+h1,
+h2,
+h3 {
+    font-family: "Space Grotesk", Inter, sans-serif;
+    color: #1f2328;
+    margin: 0;
+}
+
+a {
+    color: var(--teal);
+}
+
+
+/* ============================================================
+ *  3. PAGE LAYOUT
+ * ============================================================ */
+
+/* Centers content and keeps lines from getting too wide */
+.wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 28px;
+}
+
+main {
+    padding: 12px 0 40px;
+}
+
+/* Space between each section on a page */
+section {
+    margin-top: 44px;
+}
+
+/* Section headings (h2), including ones inside grids */
+section h2 {
+    font-size: 28px;
+    margin-bottom: 16px;
+}
+
+
+/* ============================================================
+ *  4. NAVIGATION BAR
+ *     The menu at the top of every page.
+ * ============================================================ */
+.site-nav {
+    position: sticky;       /* stays at the top while scrolling */
+    top: 0;
+    z-index: 10;
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+}
+
+.site-nav .wrap {
+    display: flex;
+    flex-direction: column;     /* title on top, links underneath */
+    align-items: flex-start;    /* both start on the left */
+    gap: 8px;                   /* space between the title and the links */
+    padding-top: 14px;
+    padding-bottom: 10px;
+}
+
+/* Site name on the left of the menu */
+.brand {
+    font-family: "Space Grotesk", Inter, sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #1f2328;
+    text-decoration: none;
+}
+
+/* The list of page links */
+.site-nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    align-self: center;
+}
+
+.nav-link {
+    display: block;
+    padding: 9px 14px;
+    border-radius: 8px;
+    color: #1f2328;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    background: var(--soft);
+}
+
+/* Highlights the page you are currently on */
+.nav-link[aria-current="page"] {
+    background: var(--teal);
+    color: #fff;
+    font-weight: 600;
+}
+
+
+/* ============================================================
+ *  5. BANNER (HERO)
+ *     The big title area at the top of each page.
+ * ============================================================ */
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 56px 0 48px;
+    background: var(--soft);
+    border-bottom: 1px solid var(--line);
+}
+
+.hero h1 {
+    font-size: clamp(32px, 5vw, 52px);   /* shrinks on small screens */
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+}
+
+.tagline {
+    max-width: 760px;
+    margin: 14px 0 0;
+    font-size: 19px;
+    color: var(--muted);
+}
+
+/* The banner photo fills the whole banner behind the text */
+.hero .bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* --- Only applies once a banner photo has been added --- */
+
+/* Dark see-through layer so white text is readable over the photo */
+.hero:has(img.bg)::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(90deg, rgba(10, 20, 25, 0.78), rgba(10, 20, 25, 0.45));
+}
+
+/* Keep the text above the dark layer */
+.hero .wrap {
+    position: relative;
+    z-index: 2;
+}
+
+.hero:has(img.bg) h1,
+.hero:has(img.bg) .tagline {
+    color: #fff;
+}
+
+
+/* ============================================================
+ *  6. IMAGE PLACEHOLDERS
+ *     Dashed boxes that mark where an image still needs to go.
+ * ============================================================ */
+
+/* Small label inside the banner */
+.img-slot-note {
+    display: inline-block;
+    margin-bottom: 14px;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: #fff;
+    border: 1.5px dashed #9aa1ab;
+    border-radius: 6px;
+}
+
+/* Large box for images inside the page */
+.slot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 260px;
+    padding: 24px;
+    text-align: center;
+    color: var(--muted);
+    background: var(--soft);
+    border: 2px dashed #9aa1ab;
+    border-radius: 10px;
+}
+
+.slot strong {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.slot small {
+    font-size: 13px;
+}
+
+/* A real image that replaces a placeholder box */
+.figure {
+    margin: 0;
+}
+
+.figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.slot-filled {
+    display: block;         /* turn off the centering used for the placeholder text */
+    min-height: 0;          /* let the box be exactly as tall as the image */
+    padding: 0;
+    overflow: hidden;       /* clips the image's corners to the box's rounded corners */
+    border: 1px solid var(--line);
+}
+
+.slot-filled img {
+    display: block;         /* removes the small gap under images */
+    width: 100%;
+    height: auto;           /* keeps the chart's shape, so nothing is cropped */
+}
+
+
+/* ============================================================
+ *  7. GRIDS
+ *     Put boxes side by side in 2 or 3 columns.
+ * ============================================================ */
+.grid {
+    display: grid;
+    gap: 20px;
+}
+
+.grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Text on one side, image on the other */
+.split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: start;
+}
+
+
+/* ============================================================
+ *  8. BOXES AND CARDS
+ * ============================================================ */
+
+/* Plain bordered box for paragraphs */
+.box {
+    padding: 22px 24px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+}
+
+.box p {
+    margin: 0;
+}
+
+/* Space between paragraphs inside the same box */
+.box p + p {
+    margin-top: 12px;
+}
+
+/* Card with a teal stripe on top (facts, effects, options) */
+.card {
+    padding: 22px 22px 20px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--teal);
+    border-radius: 10px;
+}
+
+.card h3 {
+    margin: 0 0 8px;
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.card p {
+    margin: 0;
+    color: #374151;
+}
+
+/* Small uppercase label above a card title, e.g. "FACT 1" */
+.eyebrow {
+    margin: 0 0 6px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal);
+}
+
+/* Highlighted box for the "Take action" step */
+.callout {
+    padding: 20px 24px;
+    background: #e8f3f4;
+    border: 1px solid #b9dcdf;
+    border-radius: 10px;
+}
+
+.callout p {
+    margin: 0;
+}
+
+/* In-text citations, e.g. (Cisco, n.d.) */
+.cite {
+    color: var(--muted);
+}
+
+
+/* ============================================================
+ *  9. BUTTONS
+ * ============================================================ */
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 22px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    background: var(--teal);
+    border-radius: 8px;
+}
+
+.btn:hover {
+    background: var(--teal-dark);
+}
+
+
+/* ============================================================
+ *  10. KEY TERMS (CLICK TO OPEN)
+ *      Uses <details> and <summary>, so no JavaScript needed.
+ * ============================================================ */
+details {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--teal);
+    border-radius: 10px;
+}
+
+/* Space between two key terms */
+details + details {
+    margin-top: 12px;
+}
+
+summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    font-size: 18px;
+    font-weight: 700;
+    list-style: none;       /* hides the default arrow */
+    cursor: pointer;
+}
+
+/* Hides the default arrow in Safari */
+summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Shows "+" when closed... */
+summary::after {
+    content: "+";
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--teal);
+}
+
+/* ...and "−" when open */
+details[open] summary::after {
+    content: "\2212";
+}
+
+details p {
+    margin: 0;
+    padding: 0 20px 18px;
+    color: #374151;
+}
+
+
+/* ============================================================
+ *  11. REFERENCES (APA)
+ * ============================================================ */
+
+/* Hanging indent: first line sticks out, the rest is indented */
+.refs p {
+    margin: 0 0 14px;
+    padding-left: 2.2em;
+    text-indent: -2.2em;
+    overflow-wrap: anywhere;   /* lets long links wrap */
+}
+
+
+/* ============================================================
+ *  12. FOOTER
+ * ============================================================ */
+footer {
+    margin-top: 56px;
+    padding: 22px 0;
+    font-size: 15px;
+    color: var(--muted);
+    background: var(--soft);
+    border-top: 1px solid var(--line);
+}
+
+
+/* ============================================================
+ *  13. PHONES AND SMALL SCREENS
+ *      Everything above still applies; these rules only
+ *      change what needs to change below 820px wide.
+ * ============================================================ */
+@media (max-width: 820px) {
+    body {
+        font-size: 16px;
+    }
+
+    /* Stack columns on top of each other */
+    .grid-2,
+    .grid-3,
+    .split {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 40px 0 34px;
+    }
+
+    /* Center the menu */
+    .site-nav .wrap {
+        justify-content: center;
+    }
+
+    .brand {
+        width: 100%;
+        text-align: center;
+    }
+}
